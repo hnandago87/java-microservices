@@ -1,0 +1,32 @@
+hystrix.command.fallbackcmd.execution.isolation.thread.timeoutInMilliseconds: 2000
+spring:
+  application:
+    name: api-gateway
+server:
+  port: 8088
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8760/eureka
+  instance:
+    name: localhost
+    preferIpAddress: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+zuul:
+  #Service will be mapped under the /api URI
+  prefix: /api
+  routes:
+    eureka-service:
+      path: /service/**
+      url: http://localhost:8085
