@@ -6,6 +6,8 @@ server:
 spring:
   cloud:
     config:
+      username: user
+      passord: password
       server:
         git:
           uri: https://github.com/hnandago87/spring-cloud-config

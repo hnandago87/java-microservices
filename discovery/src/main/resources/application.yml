@@ -1,11 +1,19 @@
 spring:
   application:
     name: discovery-service
+  security:
+    basic:
+      enabled: true
+    user:
+      name: user
+      passord: password
 eureka:
   client:
     eureka-server-connect-timeout-seconds: 5
     enabled: true
     fetch-registry: false
     register-with-eureka: false
+    eviction-interval-timer-in-ms: 1000
+    ebable-self-preservation: false
 server:
-  port: 8760
+  port: 8761
